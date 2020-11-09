@@ -62,6 +62,9 @@ jobs:
       run: git fetch
       working-directory: ./my-tools
     
+    - name: ls
+      run: ls -R
+    
     - name: unzip
       shell: python
       run: |
@@ -69,7 +72,9 @@ jobs:
             with zipfile.ZipFile(r"build\distributions\RefactoringMiner-2.0.2.zip","r") as zip_ref:
               zip_ref.extractall("target")
 
-     
+         
+    - name: ls
+      run: ls -R
 
     - name: execute
       run: target\bin\RefactoringMiner.bat -bc my-tools 273b353bf004e4c6108de3e97c327b9ec418d20f 286ab7c6dd4c4aae0b0290517ea3508487 > out.json
