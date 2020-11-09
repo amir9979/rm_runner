@@ -72,9 +72,7 @@ jobs:
      
 
     - name: execute
-      run: RefactoringMiner.bat -bc ../../my-tools 273b353bf004e4c6108de3e97c327b9ec418d20f 286ab7c6dd4c4aae0b0290517ea3508487 > ../../out.json
-      working-directory: target\bin
-    
+      run: target\bin\RefactoringMiner.bat -bc my-tools 273b353bf004e4c6108de3e97c327b9ec418d20f 286ab7c6dd4c4aae0b0290517ea3508487 > out.json
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
