@@ -39,15 +39,6 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew.bat distZip
     
-    - name: ls
-      run: ls -R
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        # Artifact name
-        name: jar
-        # A file, directory or wildcard pattern that describes what to upload
-        path: ./build/libs/jasome.jar
 
     - name: Checkout tools repo
       continue-on-error: true
@@ -77,7 +68,7 @@ jobs:
       run: ls -R
 
     - name: execute
-      run: target\bin\RefactoringMiner.bat -bc my-tools 273b353bf004e4c6108de3e97c327b9ec418d20f 286ab7c6dd4c4aae0b0290517ea3508487 > out.json
+      run: target\RefactoringMiner-2.0.2\bin\RefactoringMiner.bat -bc my-tools 273b353bf004e4c6108de3e97c327b9ec418d20f 286ab7c6dd4c4aae0b0290517ea3508487 > out.json
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
