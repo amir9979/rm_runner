@@ -37,7 +37,7 @@ jobs:
         python-version: 2.7
 
     - name: Build with Gradle
-      run: gradlew.bat distZip
+      run: ./gradlew.bat distZip
     
     - name: ls
       run: ls -R
