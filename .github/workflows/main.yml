@@ -16,6 +16,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: windows-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        commit_ind: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -52,16 +57,29 @@ jobs:
       continue-on-error: true
       run: git fetch
       working-directory: ./my-tools
-    
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install gitpython
+
     - name: unzip
       shell: python
       run: |
             import zipfile
             with zipfile.ZipFile(r"build\distributions\RefactoringMiner-2.0.3.zip","r") as zip_ref:
               zip_ref.extractall("target")
+            import git
+            repo = git.repo('my-tools')
+            commits = list(repo.iter_commits())
+            ind = int(${{matrix.commit_ind}})
+            start = commits[ind*1000]
+            end = commits[(ind+1)*1000]
+            print(start, end)
+            
 
-    - name: execute
-      run: target\RefactoringMiner-2.0.2\bin\RefactoringMiner.bat -a my-tools master > out.json
+#     - name: execute
+#       run: target\RefactoringMiner-2.0.2\bin\RefactoringMiner.bat -a my-tools master > out.json
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
