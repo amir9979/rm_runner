@@ -57,7 +57,7 @@ jobs:
       shell: python
       run: |
             import zipfile
-            with zipfile.ZipFile(r"build\distributions\RefactoringMiner-2.0.2.zip","r") as zip_ref:
+            with zipfile.ZipFile(r"build\distributions\RefactoringMiner-2.0.3.zip","r") as zip_ref:
               zip_ref.extractall("target")
 
     - name: execute
