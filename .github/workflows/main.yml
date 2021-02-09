@@ -67,6 +67,7 @@ jobs:
       shell: python
       run: |
             import zipfile
+            import subprocess
             with zipfile.ZipFile(r"build\distributions\RefactoringMiner-2.0.3.zip","r") as zip_ref:
               zip_ref.extractall("target")
             import git
@@ -76,6 +77,11 @@ jobs:
             start = commits[ind*1000]
             end = commits[(ind+1)*1000]
             print(start, end)
+            log = open('out.json', 'a')
+            c = subprocess.Popen(['dir', '/p'], stdout=log, stderr=log, shell=True)
+            log.flush()
+            log.close()
+
             
 
 #     - name: execute
