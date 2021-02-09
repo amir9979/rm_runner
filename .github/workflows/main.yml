@@ -78,7 +78,7 @@ jobs:
             end = commits[(ind+1)*1000]
             print(start, end)
             log = open('out.json', 'a')
-            c = subprocess.Popen(['cmd', '/c' ,'"', 'target\RefactoringMiner-2.0.2\bin\RefactoringMiner.bat', '-bc' , 'my-tools', start.hexsha, end.hexsha , '"'], stdout=log, stderr=log, shell=True)
+            c = subprocess.call(['target\RefactoringMiner-2.0.2\bin\RefactoringMiner.bat', '-bc' , 'my-tools', start.hexsha, end.hexsha], stdout=log, stderr=log, shell=True)
             log.flush()
             log.close()
 
