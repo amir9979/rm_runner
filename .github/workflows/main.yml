@@ -88,7 +88,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
-        name: ${{github.event.issue.number}}.json
+        name: ${{matrix.commit_ind}}.json
         # A file, directory or wildcard pattern that describes what to upload
         path: out.json
 
