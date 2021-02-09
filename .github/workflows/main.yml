@@ -79,6 +79,7 @@ jobs:
             print(start, end)
             log = open('out.json', 'a')
             c = subprocess.call(['target\RefactoringMiner-2.0.2\bin\RefactoringMiner.bat', '-bc' , 'my-tools', start.hexsha, end.hexsha], stdout=log, stderr=log, shell=True)
+            c.communicate()
             log.flush()
             log.close()
 
