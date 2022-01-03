@@ -81,7 +81,7 @@ jobs:
             end = commits[ind*1000]
             start = commits[(ind+1)*1000]
             print(start, end)
-            c = subprocess.call([r'.\target\RefactoringMiner-2.0.3\bin\RefactoringMiner.bat', '-bc' , 'my-tools', start.hexsha, end.hexsha, '-json', str(ind) + '.json'])
+            c = subprocess.call([r'target\RefactoringMiner-2.2.0\bin\RefactoringMiner.bat', '-bc' , 'my-tools', start.hexsha, end.hexsha, '-json', str(ind) + '.json'])
             
 
 #     - name: execute
