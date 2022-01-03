@@ -27,7 +27,7 @@ jobs:
     - name: Checkout RefactoringMiner
       uses: actions/checkout@v2
       with:
-        repository: tsantalis/RefactoringMiner
+        repository: amir9979/RefactoringMiner
         path: .
         fetch-depth: 0
         ref: master
