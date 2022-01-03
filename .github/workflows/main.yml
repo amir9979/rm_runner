@@ -70,7 +70,7 @@ jobs:
             import zipfile
             import subprocess
             import os
-            with zipfile.ZipFile(r"build\distributions\RefactoringMiner-2.0.3.zip","r") as zip_ref:
+            with zipfile.ZipFile(r"build\distributions\RefactoringMiner-2.2.0.zip","r") as zip_ref:
               zip_ref.extractall("target")
             import git
             repo = git.Repo('my-tools')
