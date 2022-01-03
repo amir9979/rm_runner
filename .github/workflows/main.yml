@@ -45,6 +45,8 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew.bat distZip
     
+    - name: ls
+      run: ls -R
 
     - name: Checkout tools repo
       continue-on-error: true
